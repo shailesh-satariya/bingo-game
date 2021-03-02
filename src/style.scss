@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.game-grid-container {
+  position: relative;
+  width: min( 100vw, 100vh );
+  padding-bottom: min( 100vw, 100vh );
+  font-size: min(2vw, 2vh);
+}
+
+.game-grid-wrapper {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.game-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  box-sizing: initial;
+  justify-self: center;
+
+  border: 1px solid #f0f0f0;
+}
+
+.grid-tile {
+  box-sizing: border-box;
+  display: -webkit-box;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.grid-tile.traversed {
+  cursor: default;
+}
+
+.grid-tile.traversed .grid-tile-inner {
+  background-color: #ffffaa;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+@media (min-aspect-ratio: 8/5) {
+  .main-game-board .game-grid-container {
+    width: min(100%, 65vmin);
+    padding-bottom: min(100%, 65vmin);
+  }
+}
+
+[class|="confetti"] {
+  position: absolute;
+}
+
+$colors: (#d13447, #ffbf00, #263672);
+
+@for $i from 0 through 200 {
+  $w: random(8);
+  $l: random(100);
+  .confetti-#{$i} {
+    width: #{$w}px;
+    height: #{$w*0.4}px;
+    background-color: nth($colors, random(3));
+    top: -10%;
+    left: unquote($l+"%");
+    opacity: random() + 0.5;
+    transform: rotate(#{random()*360}deg);
+    animation: drop-#{$i} unquote(4+random()+"s") unquote(random()+"s") 1;
+  }
+
+  @keyframes drop-#{$i} {
+    100% {
+      top: 110%;
+      left: unquote($l+random(15)+"%");
+    }
+  }
+}
