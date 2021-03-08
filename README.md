@@ -18,7 +18,6 @@ That's it! The players can start playing on:
 http://localhost:3000
 ```
 
-Use different tabs / browser for opponent
 
 ### NPM Test
 
