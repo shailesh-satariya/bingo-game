@@ -1,6 +1,8 @@
 # The Bingo Game
 
-The Goal is to implement a game when a column or row or diagonal is completely traversed, show celebration.
+The Goal is to implement a game when a column or row or diagonal is completely traversed, shows celebration.
+
+[Demo](https://shailesh-satariya.github.io/bingo-game/demo/)
 
 ### NPM Install
 This project is very easy to install and run.
